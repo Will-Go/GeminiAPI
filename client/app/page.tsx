@@ -41,7 +41,7 @@ export default function Chat() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen ">
       {/* Background blur */}
-      <div className="absolute top-0 h-96 w-96 blur-[300px] rounded-full bg-accent-700 animate-pulse"></div>
+      <div className="absolute top-0 h-96 w-96 blur-[150px] rounded-full bg-accent-700 animate-pulse"></div>
 
       {/* CONTENT */}
       {/* Welcome Message (Top) */}
