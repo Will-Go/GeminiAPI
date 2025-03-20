@@ -1,9 +1,11 @@
 import express from "express";
 import config from "./config/envConfig";
+import cors from "cors";
 import healthRoutes from "./routes/healthRoutes";
 import geminiRoutes from "./routes/geminiRoutes";
 const PORT = config.PORT;
 const app = express();
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

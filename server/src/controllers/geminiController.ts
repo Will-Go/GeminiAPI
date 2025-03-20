@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { model, contentModerator } from "../config/geminiConfig";
-import { type } from "os";
 
 export const say = async (req: Request, res: Response): Promise<void> => {
   // Access the request body
@@ -46,16 +45,16 @@ export const moderator = async (req: Request, res: Response): Promise<void> => {
     return;
   }
 
-  const { prompt } = requestBody;
+  const { text } = requestBody;
 
-  if (!prompt || typeof prompt !== "string") {
-    res.status(400).json({ error: "No prompt provided" });
+  if (!text || typeof text !== "string") {
+    res.status(400).json({ error: "No text provided" });
     return;
   }
 
   try {
     const result =
-      (await contentModerator.generateContent(prompt)).response?.candidates?.[0]
+      (await contentModerator.generateContent(text)).response?.candidates?.[0]
         .content.parts[0].text ?? null;
 
     if (!result) {
